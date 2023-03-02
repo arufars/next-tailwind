@@ -1,17 +1,9 @@
 import Image from "next/image";
-// import { Inter } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import data from "../data/index.json";
 import Card from "@/ui/Card";
 
-function Inter() {
-  const className = "hai";
-  return {
-    className,
-  };
-}
-
-// const inter = Inter({ subsets: ['latin'] })
-const inter = Inter();
+const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
