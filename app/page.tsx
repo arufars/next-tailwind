@@ -1,28 +1,37 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from './page.module.css'
+import Image from "next/image";
+// import { Inter } from 'next/font/google'
+import data from "../data/index.json";
+import Card from "@/ui/Card";
 
-const inter = Inter({ subsets: ['latin'] })
+function Inter() {
+  const className = "hai";
+  return {
+    className,
+  };
+}
+
+// const inter = Inter({ subsets: ['latin'] })
+const inter = Inter();
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
+    <section className="flex flex-col justify-between items-center p-24 min-h-screen">
+      <div className="lg:flex justify-between items-center text-sm max-w-5xl w-full z-10 xl:text-xs">
+        <p className="text-center relative m-0 p-4 bg-gray-200/20 rounded-custom border border-solid border-gray-200/20">
           Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
+          <code className="font-bold">app/page.tsx</code>
         </p>
         <div>
           <a
+            className="hidden lg:flex items-center justify-center gap-2"
             href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
             target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
+            rel="noopener noreferrer">
+            By{" "}
             <Image
               src="/vercel.svg"
               alt="Vercel Logo"
-              className={styles.vercelLogo}
+              className="dark: filter invert drop-shadow-lg"
               width={100}
               height={24}
               priority
@@ -31,61 +40,26 @@ export default function Home() {
         </div>
       </div>
 
-      <div className={styles.center}>
+      <div className="center">
         <Image
-          className={styles.logo}
+          className="logo"
           src="/next.svg"
           alt="Next.js Logo"
           width={180}
           height={37}
           priority
         />
-        <div className={styles.thirteen}>
+        <div className="thirteen">
           <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
         </div>
       </div>
 
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      {/* Card */}
+      <div className="grid-cols-1 text-center lg:text-base grid lg:grid-cols-[repeat(3,minmax(33%,auto))] lg:w-[1100px] lg:max-w-full gap-2 ">
+        {data.map((item, i: number) => (
+          <Card font={inter.className} key={i} {...item} />
+        ))}
       </div>
-    </main>
-  )
+    </section>
+  );
 }
