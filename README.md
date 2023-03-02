@@ -2,7 +2,15 @@ This is a [Next.js](https://nextjs.org/) version `13.2.3` project bootstrapped w
 
 ## Getting Started
 
-First, run the development server:
+First, clone this repo:
+```bash
+
+git clone git@github.com:arufars/next-tailwind.git
+
+```
+
+
+Second, run the development server:
 
 ```bash
 npm run dev
